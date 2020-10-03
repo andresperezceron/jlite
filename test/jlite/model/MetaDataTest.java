@@ -16,23 +16,24 @@ class MetaDataTest {
 
     @Test
     void getColumNames() {
-        String[] expected, actual;
-        MetaData meta = new MetaData("forma", conn);
-        actual = meta.getColumNames();
-        expected = new String[]{"id", "nombre"};
-        assertArrayEquals(expected, actual);
-        meta = new MetaData("articulo", conn);
-        expected = new String[]{"id", "id_color", "id_forma", "codigo", "descripcion"};
-        actual = meta.getColumNames();
-        assertArrayEquals(expected, actual);
+        assertArrayEquals(new String[]{"id", "nombre"}, new MetaData("forma", conn).getColumNames());
+        String[] expected = {"id", "id_color", "id_forma", "codigo", "descripcion"};
+        assertArrayEquals(expected, new MetaData("articulo", conn).getColumNames());
         conn.close();
     }
 
     @Test
     void getColumTypes() {
+        assertArrayEquals(new String[]{"INTEGER", "TEXT"}, new MetaData("forma", conn).getColumTypes());
+        String[] expected = {"INTEGER", "INTEGER", "INTEGER", "INTEGER", "TEXT"};
+        assertArrayEquals(expected, new MetaData("articulo", conn).getColumTypes());
+        conn.close();
     }
 
     @Test
     void getColumCount() {
+        assertEquals(2, new MetaData("color", conn).getColumCount());
+        assertEquals(5, new MetaData("articulo", conn).getColumCount());
+        conn.close();
     }
 }
