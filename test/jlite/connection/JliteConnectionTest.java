@@ -1,6 +1,7 @@
 package jlite.connection;
 
 import jlite.JliteConfig;
+import jlite.JliteConnection;
 import org.junit.jupiter.api.Test;
 
 import java.sql.ResultSet;
@@ -12,7 +13,7 @@ class JliteConnectionTest {
     private final JliteConnection conn;
 
     private JliteConnectionTest() {
-        JliteConfig.setPathDb(getClass().getResource("/db/test.db").toString());
+        JliteConfig.setPathDb("./testres/db/test.db");
         conn = new JliteConnection();
     }
 

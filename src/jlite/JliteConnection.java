@@ -1,6 +1,4 @@
-package jlite.connection;
-
-import jlite.JliteConfig;
+package jlite;
 
 import java.sql.*;
 
