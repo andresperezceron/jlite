@@ -1,7 +1,5 @@
-package jlite.connection;
+package jlite;
 
-import jlite.JliteConfig;
-import jlite.JliteConnection;
 import org.junit.jupiter.api.Test;
 
 import java.sql.ResultSet;
