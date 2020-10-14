@@ -9,6 +9,11 @@ public class Model {
     private final Crud crud;
     private final String schema;
 
+    public Model (String schema) {
+        this.schema = schema;
+        crud = null;
+    }
+
     public Model(String schema, JliteConnection conn) {
         this.schema = schema;
         crud = new Crud(schema, conn);
